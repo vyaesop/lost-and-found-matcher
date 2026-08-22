@@ -57,3 +57,4 @@ AGENTS.md
 
 # prisma installer artifacts
 .agents/
+.windsurf/
