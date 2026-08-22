@@ -34,6 +34,10 @@ describe("tokenize", () => {
     expect(tokenize("keys keys keychain")).toEqual(["key"]);
   });
 
+  it("keeps single digits so room numbers stay distinct", () => {
+    expect(tokenize("lecture hall 3")).toEqual(["lecture", "hall", "3"]);
+  });
+
   it("returns an empty list for empty or stopword-only input", () => {
     expect(tokenize("")).toEqual([]);
     expect(tokenize("i lost it near the")).toEqual([]);

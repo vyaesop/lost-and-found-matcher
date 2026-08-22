@@ -148,6 +148,9 @@ function scoreDate(lost: MatchableReport, found: MatchableReport): Component {
 }
 
 function scoreColor(a: MatchableReport, b: MatchableReport): Component {
+  if (a.color === "unknown" && b.color === "unknown") {
+    return { score: 0.5, reason: "Color not specified on either report" };
+  }
   if (a.color === "unknown" || b.color === "unknown") {
     return { score: 0.5, reason: "Color not specified on one of the reports" };
   }

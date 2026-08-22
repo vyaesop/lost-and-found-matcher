@@ -62,7 +62,8 @@ function canonicalize(token: string): string {
 export function tokenize(input: string): string[] {
   const seen = new Set<string>();
   for (const raw of normalizeText(input).split(" ")) {
-    if (raw.length < 2 || STOPWORDS.has(raw)) continue;
+    // Single digits stay: room numbers like "hall 3" are real signal.
+    if ((raw.length < 2 && !/^\d$/.test(raw)) || STOPWORDS.has(raw)) continue;
     seen.add(canonicalize(raw));
   }
   return [...seen];

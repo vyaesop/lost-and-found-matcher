@@ -195,6 +195,13 @@ describe("scoreMatch", () => {
     const result = scoreMatch(lost, found);
     expect(result.reasons).toContain("Color not specified on one of the reports");
   });
+
+  it("does not treat two unknown colors as a color agreement", () => {
+    const lost = report({ type: "lost", color: "unknown", category: "keys" });
+    const found = report({ type: "found", color: "unknown", category: "keys" });
+    const result = scoreMatch(lost, found);
+    expect(result.reasons).toContain("Color not specified on either report");
+  });
 });
 
 describe("findMatches", () => {
