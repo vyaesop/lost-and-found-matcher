@@ -54,3 +54,6 @@ skills-lock.json
 
 # generated agent rules
 AGENTS.md
+
+# prisma installer artifacts
+.agents/
