@@ -125,7 +125,7 @@ function scoreDate(lost: MatchableReport, found: MatchableReport): Component {
   const foundTime = approximateTime(found);
   const hoursApart = Math.abs(foundTime - lostTime) / 3_600_000;
 
-  let score = Math.max(0, 1 - hoursApart / MAX_HOURS_APART);
+  const score = Math.max(0, 1 - hoursApart / MAX_HOURS_APART);
   const daysApart = Math.round(hoursApart / 24);
 
   // Finding an item well before it was lost points away from a match.
