@@ -105,7 +105,12 @@ export function ReportForm() {
           <label htmlFor="timePeriod" className="mb-1 block text-sm font-medium text-slate-700">
             Time of day
           </label>
-          <select id="timePeriod" name="timePeriod" className={`${inputClass} capitalize`}>
+          <select
+            id="timePeriod"
+            name="timePeriod"
+            defaultValue="unknown"
+            className={`${inputClass} capitalize`}
+          >
             {TIME_PERIODS.map((t) => (
               <option key={t} value={t}>
                 {t === "unknown" ? "not sure" : t}
