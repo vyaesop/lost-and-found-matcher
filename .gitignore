@@ -48,3 +48,6 @@ next-env.d.ts
 *.db-journal
 
 /src/generated/prisma
+
+# local tooling
+skills-lock.json
