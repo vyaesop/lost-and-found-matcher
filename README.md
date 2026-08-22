@@ -82,7 +82,7 @@ Authentication, accounts, notifications, maps, photo uploads, chat, claim workfl
 
 ## What I would improve as a real product
 
-- Feedback loop: let staff confirm or reject suggested matches and use those outcomes to tune the weights against real data instead of intuition.
+- Feedback loop: let staff confirm or reject suggested matches, then learn the weights from those outcomes the way probabilistic record linkage tools do (the Fellegi-Sunter model behind Splink is the natural upgrade path for this kind of weighted field comparison), instead of setting them by intuition.
 - A proper location model: named campus places with aliases and adjacency (library and library entrance should be more than a string overlap).
 - Embedding-based text similarity (still local, e.g. a small sentence-transformer) once real descriptions prove too varied for token overlap.
 - Report lifecycle: resolve or expire reports so the pool stays clean, plus rate limiting and moderation for abuse.
