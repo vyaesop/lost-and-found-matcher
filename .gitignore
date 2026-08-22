@@ -59,3 +59,4 @@ CLAUDE.md
 # prisma installer artifacts
 .agents/
 .claude/
+.windsurf/
