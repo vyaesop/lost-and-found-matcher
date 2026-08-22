@@ -25,20 +25,23 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full font-sans">
-        <header className="border-b border-slate-200 bg-white">
-          <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-4">
-            <Link href="/" className="text-lg font-semibold tracking-tight">
+        <header className="border-b border-neutral-200">
+          <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
+            <Link
+              href="/"
+              className="font-mono text-sm font-semibold uppercase tracking-[0.2em]"
+            >
               Lost &amp; Found
             </Link>
             <Link
               href="/reports/new"
-              className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-700"
+              className="bg-neutral-900 px-4 py-2 font-mono text-xs font-medium uppercase tracking-widest text-white hover:bg-neutral-700"
             >
               Report an item
             </Link>
           </div>
         </header>
-        <main className="mx-auto max-w-4xl px-4 py-8">{children}</main>
+        <main className="mx-auto max-w-5xl px-6 py-10">{children}</main>
       </body>
     </html>
   );

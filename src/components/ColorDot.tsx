@@ -1,5 +1,5 @@
 const HEX: Record<string, string> = {
-  black: "#1e293b",
+  black: "#171717",
   white: "#ffffff",
   gray: "#9ca3af",
   silver: "#d1d5db",
@@ -24,7 +24,7 @@ export function ColorDot({ color }: { color: string }) {
       : { backgroundColor: HEX[color] ?? "#9ca3af" };
   return (
     <span
-      className="inline-block size-3 shrink-0 rounded-full border border-slate-300"
+      className="inline-block size-2.5 shrink-0 border border-neutral-300"
       style={style}
       aria-hidden
     />

@@ -19,15 +19,15 @@ function Column({
 }) {
   return (
     <section>
-      <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-500">
+      <h2 className="border-b border-neutral-900 pb-2 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-neutral-900">
         {heading} ({reports.length})
       </h2>
       {reports.length === 0 ? (
-        <p className="rounded-xl border border-dashed border-slate-300 p-4 text-sm text-slate-500">
+        <p className="border border-t-0 border-dashed border-neutral-300 p-5 font-mono text-xs text-neutral-500">
           {emptyText}
         </p>
       ) : (
-        <div className="space-y-3">
+        <div className="divide-y divide-neutral-200 border-x border-b border-neutral-200">
           {reports.map((report) => (
             <ReportCard
               key={report.id}
@@ -54,14 +54,14 @@ export default async function HomePage() {
 
   if (reports.length === 0) {
     return (
-      <div className="rounded-xl border border-slate-200 bg-white p-10 text-center">
-        <h1 className="text-xl font-semibold">No reports yet</h1>
-        <p className="mt-2 text-sm text-slate-600">
+      <div className="border border-neutral-200 p-16 text-center">
+        <h1 className="text-2xl font-medium tracking-tight">No reports yet</h1>
+        <p className="mt-3 font-mono text-xs text-neutral-500">
           File the first lost or found report and matches will show up here.
         </p>
         <Link
           href="/reports/new"
-          className="mt-5 inline-block rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-700"
+          className="mt-8 inline-block bg-neutral-900 px-5 py-2.5 font-mono text-xs uppercase tracking-widest text-white hover:bg-neutral-700"
         >
           Report an item
         </Link>
@@ -71,13 +71,13 @@ export default async function HomePage() {
 
   return (
     <>
-      <div className="mb-6">
-        <h1 className="text-2xl font-semibold tracking-tight">Reports</h1>
-        <p className="mt-1 text-sm text-slate-600">
+      <div className="mb-10">
+        <h1 className="text-4xl font-medium tracking-tight">Reports</h1>
+        <p className="mt-3 font-mono text-xs text-neutral-500">
           Open any report to see its potential matches, scored and explained.
         </p>
       </div>
-      <div className="grid gap-8 sm:grid-cols-2">
+      <div className="grid gap-10 sm:grid-cols-2 sm:gap-8">
         <Column
           heading="Lost"
           reports={reports.filter((r) => r.type === "lost")}
