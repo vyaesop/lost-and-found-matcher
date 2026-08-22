@@ -7,11 +7,14 @@ import { CATEGORIES, COLORS, TIME_PERIODS } from "@/lib/constants";
 const initialState: CreateReportState = { errors: {} };
 
 const inputClass =
-  "w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm focus:border-slate-500 focus:outline-none";
+  "w-full border border-neutral-300 bg-white px-3 py-2.5 text-sm focus:border-neutral-900 focus:outline-none";
+
+const labelClass =
+  "mb-2 block font-mono text-[11px] uppercase tracking-widest text-neutral-500";
 
 function FieldError({ message }: { message?: string }) {
   if (!message) return null;
-  return <p className="mt-1 text-sm text-rose-600">{message}</p>;
+  return <p className="mt-1.5 font-mono text-xs text-red-600">{message}</p>;
 }
 
 export function ReportForm() {
@@ -19,25 +22,23 @@ export function ReportForm() {
   const { errors } = state;
 
   return (
-    <form action={formAction} className="space-y-5">
+    <form action={formAction} className="space-y-6">
       <fieldset>
-        <legend className="mb-2 text-sm font-medium text-slate-700">
-          What happened?
-        </legend>
-        <div className="grid grid-cols-2 gap-2">
-          <label className="flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm font-medium has-checked:border-rose-400 has-checked:bg-rose-50">
-            <input type="radio" name="type" value="lost" defaultChecked className="accent-rose-600" />
+        <legend className={labelClass}>What happened?</legend>
+        <div className="grid grid-cols-2 gap-3">
+          <label className="flex cursor-pointer items-center justify-center gap-2 border border-neutral-300 px-3 py-3 text-sm font-medium has-checked:border-red-600 has-checked:text-red-600">
+            <input type="radio" name="type" value="lost" defaultChecked className="accent-red-600" />
             I lost something
           </label>
-          <label className="flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm font-medium has-checked:border-sky-400 has-checked:bg-sky-50">
-            <input type="radio" name="type" value="found" className="accent-sky-600" />
+          <label className="flex cursor-pointer items-center justify-center gap-2 border border-neutral-300 px-3 py-3 text-sm font-medium has-checked:border-blue-600 has-checked:text-blue-600">
+            <input type="radio" name="type" value="found" className="accent-blue-600" />
             I found something
           </label>
         </div>
       </fieldset>
 
       <div>
-        <label htmlFor="title" className="mb-1 block text-sm font-medium text-slate-700">
+        <label htmlFor="title" className={labelClass}>
           Title
         </label>
         <input
@@ -50,9 +51,9 @@ export function ReportForm() {
         <FieldError message={errors.title} />
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="grid gap-6 sm:grid-cols-2">
         <div>
-          <label htmlFor="category" className="mb-1 block text-sm font-medium text-slate-700">
+          <label htmlFor="category" className={labelClass}>
             Category
           </label>
           <select id="category" name="category" className={`${inputClass} capitalize`}>
@@ -65,7 +66,7 @@ export function ReportForm() {
           <FieldError message={errors.category} />
         </div>
         <div>
-          <label htmlFor="color" className="mb-1 block text-sm font-medium text-slate-700">
+          <label htmlFor="color" className={labelClass}>
             Main color
           </label>
           <select id="color" name="color" className={`${inputClass} capitalize`}>
@@ -80,7 +81,7 @@ export function ReportForm() {
       </div>
 
       <div>
-        <label htmlFor="location" className="mb-1 block text-sm font-medium text-slate-700">
+        <label htmlFor="location" className={labelClass}>
           Location
         </label>
         <input
@@ -93,16 +94,16 @@ export function ReportForm() {
         <FieldError message={errors.location} />
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="grid gap-6 sm:grid-cols-2">
         <div>
-          <label htmlFor="date" className="mb-1 block text-sm font-medium text-slate-700">
+          <label htmlFor="date" className={labelClass}>
             Date
           </label>
           <input id="date" name="date" type="date" className={inputClass} />
           <FieldError message={errors.date} />
         </div>
         <div>
-          <label htmlFor="timePeriod" className="mb-1 block text-sm font-medium text-slate-700">
+          <label htmlFor="timePeriod" className={labelClass}>
             Time of day
           </label>
           <select
@@ -122,8 +123,8 @@ export function ReportForm() {
       </div>
 
       <div>
-        <label htmlFor="description" className="mb-1 block text-sm font-medium text-slate-700">
-          Description <span className="font-normal text-slate-500">(optional, helps matching)</span>
+        <label htmlFor="description" className={labelClass}>
+          Description <span className="normal-case text-neutral-400">(optional, helps matching)</span>
         </label>
         <textarea
           id="description"
@@ -138,7 +139,7 @@ export function ReportForm() {
       <button
         type="submit"
         disabled={pending}
-        className="w-full rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-medium text-white hover:bg-slate-700 disabled:opacity-60"
+        className="w-full bg-neutral-900 px-4 py-3 font-mono text-xs uppercase tracking-widest text-white hover:bg-neutral-700 disabled:opacity-60"
       >
         {pending ? "Saving..." : "Submit report"}
       </button>

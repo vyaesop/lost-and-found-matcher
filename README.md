@@ -75,6 +75,7 @@ The seed data recreates the scenarios from the brief: the AirPods case scores 82
 - **Matching is O(lost x found) on every view.** At campus scale (hundreds of reports) this is microseconds. I would only precompute or index if the pool grew by orders of magnitude.
 - **Pinned Prisma 6 rather than 7.** Prisma 7 requires driver adapters and extra configuration for SQLite; v6 keeps a clean install to two commands.
 - **Vitest for the matching engine only.** The engine holds all the logic worth testing. UI tests would mostly re-test the framework.
+- **Visual design.** The UI follows the flat editorial grid style of the sites curated in [Siteinspire's grid-layout collection](https://www.siteinspire.com/websites/category/grid-layout): hairline borders, monospaced metadata, uppercase micro labels, and no decorative chrome, so the match scores and reasons carry the page.
 
 ## What I intentionally did not build
 
