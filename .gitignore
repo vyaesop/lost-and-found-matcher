@@ -51,3 +51,7 @@ next-env.d.ts
 
 # local tooling
 skills-lock.json
+
+# generated agent rules
+AGENTS.md
+CLAUDE.md
